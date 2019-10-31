@@ -1,72 +1,33 @@
-Symfony Standard Edition
+Тестовое задание на Symfony 
 ========================
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony
-application that you can use as the skeleton for your new applications.
+Разработать небольшой сайт, используя бандл «avanzu/admin-theme-bundle», т.е. на основе 
+шаблона bootstrap AdminLTE.
+На сайте будет 2 роли: администратор и пользователь. 
+При открытии сайта, он перебрасывает на логин, т.е. анонимного доступа не будет.
+Новый пользователь в форме логина может зарегистрироваться, но подтвердить регистрацию 
+сможет администратор в системе (с уведомлением на почту).
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
+В левой панели (sidebar) будет 2 пункта: «Пользователи» и «Галерея».
+Администратору будут доступны оба, а пользователю только «Галерея».
+В пункте «Пользователи» будут следующие функции:
+1) Список пользователей, каждый пользователь включает:
+a. ФИО
+b. Логин
+c. Роль
+d. Дата регистрации (если зарегистрирован)
+e. Заявка на регистрацию или уже зарегистрирован (признак, значок, иконка или др.)
+2) При щелчке на пользователе, открываем карточку пользователя и можем подтвердить 
+заявку или заблокировать пользователя.
+3) Возможность удалить пользователя
 
-What's inside?
---------------
-
-The Symfony Standard Edition is configured with the following defaults:
-
-  * An AppBundle you can use to start coding;
-
-  * Twig as the only configured template engine;
-
-  * Doctrine ORM/DBAL;
-
-  * Swiftmailer;
-
-  * Annotations enabled for everything.
-
-It comes pre-configured with the following bundles:
-
-  * **FrameworkBundle** - The core Symfony framework bundle
-
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
-
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
-
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
-
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
-
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
-
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
-
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
-
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
-
-  * [**SensioGeneratorBundle**][13] (in dev env) - Adds code generation
-    capabilities
-
-  * [**WebServerBundle**][14] (in dev env) - Adds commands for running applications
-    using the PHP built-in web server
-
-  * **DebugBundle** (in dev/test env) - Adds Debug and VarDumper component
-    integration
-
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
-
-Enjoy!
-
-[1]:  https://symfony.com/doc/3.3/setup.html
-[6]:  https://symfony.com/doc/current/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  https://symfony.com/doc/3.3/doctrine.html
-[8]:  https://symfony.com/doc/3.3/templating.html
-[9]:  https://symfony.com/doc/3.3/security.html
-[10]: https://symfony.com/doc/3.3/email.html
-[11]: https://symfony.com/doc/3.3/logging.html
-[13]: https://symfony.com/doc/current/bundles/SensioGeneratorBundle/index.html
-[14]: https://symfony.com/doc/current/setup/built_in_web_server.html
+4) В карточке пользователя будет поле, которого нет в списке пользователей – Дата 
+Рождения.
+В пункте «Галерея» будут следующие функции:
+1) Просмотр галереи фотографий (с пагинацией на серверной стороне)
+2) Каждая фотография имеет комментарий
+3) Добавление новой фотографии с комментарием
+4) Контекстный поиск по комментарию к фотографии (на серверной стороне, не фронт-энд)
+5) Просмотре фотографии при клике с навигацией «следующая/предыдущая».
+6) Только Администратор сможет удалить фотографию
+7) Фотографии общие для всех пользователей
