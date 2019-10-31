@@ -1,0 +1,61 @@
+{% extends '::base.html.twig' %}
+
+{% block page_title %}{% endblock %}
+
+{% block page_content %}
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Пользователи</h3>
+
+
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tbody><tr>
+                            <th>ID</th>
+                            <th>ФИО</th>
+                            <th>Логин</th>
+                            <th>Роль</th>
+                            <th>Дата регистрации</th>
+                            <th>Регистрация</th>
+                            <th></th>
+                        </tr>
+                        {% for user in users %}
+                        <tr>
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.fio }}</td>
+                            <td>{{ user.login }}</td>
+                            <td>{{ user.rolesList }}</td>
+                            <td>
+                                {% if user.confirmed %}
+                                    {{ user.registred|date('d-m-Y') }}
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if user.banned %}
+                                    <span class="label label-danger">Бан</span>
+                                {% elseif user.confirmed %}
+                                    <span class="label label-success">Одобрено</span>
+                                {% else %}
+                                    <span class="label label-warning">Ожидает</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="{{ path('testjob_user_edit', { 'id': user.id }) }}"><i class="fa fa-fw fa-edit"></i></a>
+                            </td>
+                        </tr>
+                        {% else %}
+                        {% endfor %}
+
+                        </tbody></table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+{% endblock %}

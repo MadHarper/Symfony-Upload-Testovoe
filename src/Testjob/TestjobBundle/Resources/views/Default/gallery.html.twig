@@ -1,0 +1,62 @@
+{% extends '::base.html.twig' %}
+
+{% block page_title %}{% endblock %}
+
+
+
+
+{% block page_content %}
+    <div class="navigation pull-left">
+        {{ knp_pagination_render(images) }}
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="pull-left">
+                <a href="{{ path('testjob_add_gallery') }}" class="btn btn-success btn-sm">
+                    Добавить
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="gallery">
+            {% for image in images %}
+                <div class="box box-solid" id="image_box_{{ image.id }}">
+                    <div class="box-header with-border">
+                        <div class="image_item">
+                            <a href="/img/gallery/{{ image.image }}" class="photo">
+                                <img src="img/gallery/{{ image.image }}" height="250" width="350" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div>{{ image.comment }}</div>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <div class="pull-right">
+                                <a href="" class="delete-image" data-url="{{ path('testjob_delete_image', { 'id': image.id }) }}" data-image-id="{{ image.id }}">
+                                    <i class="fa fa-fw fa-close"></i>
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+
+
+            {% else %}
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/testjob/js/bundle.js') }}"></script>
+{% endblock %}

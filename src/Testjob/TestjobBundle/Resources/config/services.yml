@@ -1,0 +1,29 @@
+# services:
+#    testjob.example:
+#        class: Testjob\TestjobBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+parameters:
+
+    testjob_bundle.menu_listener.class: Testjob\TestjobBundle\EventListener\MyMenuItemListListener
+    gallery_directory: '%kernel.root_dir%/../web/img/gallery'
+
+services:
+
+    testjob_bundle.menu_listener:
+        class: %testjob_bundle.menu_listener.class%
+        arguments: ["@security.authorization_checker"]
+        tags:
+            - { name: kernel.event_listener, event:theme.sidebar_setup_menu, method:onSetupMenu }
+
+    app.security.login_form_authenticator:
+        class: Testjob\TestjobBundle\Security\LoginFormAuthenticator
+        autowire: true
+        arguments: ["@form.factory"]
+
+    testjob.doctrine.hash_password_listener:
+        class: Testjob\TestjobBundle\Doctrine\HashPasswordListener
+        autowire: true
+        tags:
+            - { name: doctrine.event_subscriber }
+

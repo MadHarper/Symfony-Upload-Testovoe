@@ -1,0 +1,57 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+    encoders:
+        Testjob\TestjobBundle\Entity\User:
+            algorithm: bcrypt
+
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        our_db_provider:
+            entity:
+                class: TestjobBundle:User
+                property: login
+
+
+
+    firewalls:
+
+        #pre:
+            #anonymous: ~
+
+            # pattern: ^/login
+            # pattern: (login|registr)
+            #pattern: (_(profiler|wdt)|login|registr)
+            #security: true
+
+            #guard:
+                  #authenticators:
+                        #- app.security.login_form_authenticator
+
+
+
+        main:
+            anonymous: ~
+            #pattern: ^/
+            #security: true
+
+            guard:
+                  authenticators:
+                        - app.security.login_form_authenticator
+
+            logout:
+                  path: /logout
+                  target: /
+
+            access_denied_url: /login
+
+
+    access_control:
+            - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/registr, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/user, roles: ROLE_ADMIN }
+            - { path: ^/gallery/delete, roles: ROLE_ADMIN }
+            - { path: ^/gallery, roles: ROLE_USER }
+            - { path: ^/profile, roles: ROLE_USER }
+            - { path: ^/, roles: ROLE_USER }

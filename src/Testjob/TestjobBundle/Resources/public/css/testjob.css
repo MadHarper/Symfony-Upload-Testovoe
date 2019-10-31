@@ -1,0 +1,29 @@
+.pagination li:first-child{
+    display: none !important;
+}
+
+.pagination li:last-child{
+    display: none !important;
+}
+
+.gallery{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.gallery .box-solid{
+    width: 370px;
+}
+
+.testjob-top{
+    height: 50px !important;
+    line-height: 50px !important;
+    padding-right: 24px !important;
+    color: white !important;
+}
+
+.testjob-top a{
+    color: white !important;
+}

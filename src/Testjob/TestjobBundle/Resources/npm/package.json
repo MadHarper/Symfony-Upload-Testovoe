@@ -1,0 +1,19 @@
+{
+  "name": "testjob",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Kolesnikov",
+  "license": "ISC",
+  "dependencies": {
+    "@fancyapps/fancybox": "^3.1.25",
+    "toastr": "^2.1.2",
+    "webpack": "^3.8.1"
+  },
+  "devDependencies": {
+    "fancybox": "^3.0.0"
+  }
+}

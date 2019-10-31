@@ -1,0 +1,66 @@
+testjob_main:
+    path: /
+    defaults: { _controller: TestjobBundle:Default:index }
+
+testjob_gallery:
+    path:     /gallery
+    defaults: { _controller: TestjobBundle:Default:gallery }
+
+testjob_add_gallery:
+    path:     /gallery/add
+    defaults: { _controller: TestjobBundle:Default:add }
+
+testjob_delete_image:
+    path:     /gallery/delete/{id}
+    defaults: { _controller: TestjobBundle:Default:delete }
+    requirements:
+          methods: GET
+          id: \d+
+
+testjob_profile:
+    path:     /profile
+    defaults: { _controller: TestjobBundle:Profile:index }
+
+testjob_users:
+    path:     /users
+    defaults: { _controller: TestjobBundle:Users:index }
+
+testjob_delete_user:
+    path:     /user/delete/{id}
+    defaults: { _controller: TestjobBundle:Users:delete }
+    requirements:
+          methods: GET
+          id: \d+
+
+testjob_ban_user:
+    path:     /user/ban/{id}
+    defaults: { _controller: TestjobBundle:Users:ban }
+    requirements:
+          methods: GET
+          id: \d+
+
+testjob_confirm_user:
+    path:     /user/confirm/{id}
+    defaults: { _controller: TestjobBundle:Users:confirm }
+    requirements:
+          methods: GET
+          id: \d+
+
+testjob_user_edit:
+    path:     /user/edit/{id}
+    defaults: { _controller: TestjobBundle:Users:edit }
+    requirements:
+          methods: GET
+          id: \d+
+
+testjob_login:
+    path:     /login
+    defaults: { _controller: TestjobBundle:Security:login }
+
+testjob_logout:
+    path:     /logout
+    defaults: { _controller: TestjobBundle:Security:login }
+
+testjob_registr:
+    path:     /registr
+    defaults: { _controller: TestjobBundle:Security:registr }

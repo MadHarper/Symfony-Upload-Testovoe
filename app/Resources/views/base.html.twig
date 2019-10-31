@@ -1,0 +1,37 @@
+{% extends 'AvanzuAdminThemeBundle:layout:base-layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/testjob/css/testjob.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/testjob/css/jquery.fancybox.css') }}" />
+{% endblock %}
+
+{% block avanzu_admin_header %}
+    <header class="main-header">
+        {% block avanzu_logo %}
+            <a href="#" class="logo">
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+                {{ block('title') }}
+            </a>
+        {% endblock %}
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            {% if app.user is not null and is_granted('IS_AUTHENTICATED_FULLY') %}
+                <div class="navbar-custom-menu testjob-top">
+                    <div class="pull-right">
+                        <a href="{{ path('testjob_profile') }}">
+                            <span>{{ app.user.login }}</span>
+                        </a>
+                        <a href="{{ path('testjob_logout') }}">
+                            <i class="fa fa-fw fa-sign-out"></i>
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+        </nav>
+    </header>
+{% endblock %}

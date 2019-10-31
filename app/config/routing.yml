@@ -1,0 +1,3 @@
+testjob:
+    resource: "@TestjobBundle/Resources/config/routing.yml"
+    prefix:   /

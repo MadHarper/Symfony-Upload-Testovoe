@@ -1,0 +1,48 @@
+{% extends 'AvanzuAdminThemeBundle:layout:login-layout.html.twig' %}
+
+{% block page_content %}
+
+
+<div class="row" id="central">
+    <div class="col-md-8 col-sm-0>
+        <div class="col-md-8 col-sm-12 theme forum-list">
+
+    <div class="row" id="central">
+        <div class="col-md-9 col-sm-12 theme forum-list">
+
+            <div class="site-signup">
+                <h1>Регистрация</h1>
+
+                <p>Заполните поля:</p>
+
+                <div class="row">
+                    <div class="col-lg-7">
+                        {{ form_start(form) }}
+                        <div class="form-group field-signupform-username required">
+                            {{ form_row(form.login) }}
+                        </div>
+                        <div class="form-group field-signupform-email required">
+                            {{ form_row(form.email) }}
+                        </div>
+                        <div class="form-group field-signupform-password required">
+                            {{ form_row(form.plainPassword.first) }}
+                        </div>
+                        <div class="form-group field-signupform-password required">
+                            {{ form_row(form.plainPassword.second) }}
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" name="signup-button">Готово !</button>
+                        </div>
+                        {{ form_end(form) }}
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="col-md-8 col-sm-0>
+    </div>
+{% endblock %}
